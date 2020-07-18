@@ -1,0 +1,48 @@
+<html>
+	<head>
+	<link rel="stylesheet" href="https://bootswatch.com/4/lumen/bootstrap.min.css"/>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<div class="container jumbotron">
+		
+				<div class="row">
+					<div class="col-md-12">
+						<input type="text" id="text" placeholder="Enter the ToDo" class="form-control">
+						<button class="btn btn-danger btn-block" id="btn">Add to ToDo List</button>
+						<br>
+					</div>
+				</div>
+			<div class="row">
+				<div class="col-md-12">
+				<div class="">
+					<ul id="ul" class="list-group">
+						<li class="list-group-item active">To Do List</li>
+						
+					</ul>
+				</div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			let btn = document.getElementById('btn');
+			let ul = document.getElementById('ul');
+			let text = document.getElementById('text');
+			btn.addEventListener('click', function(event){
+				let val = text.value;
+				text.value= '';
+				ul.innerHTML += `<li class="list-group-item mr-auto">${val} <button class="btn btn-primary" onclick="func(this)">Delete</button></li>`;
+			})
+			
+			
+			
+			function func(e){
+				e.parentNode.parentNode.removeChild(e.parentNode)
+			}
+
+		</script>
+	</body>
+</html>
